@@ -1,6 +1,6 @@
 import os
 
-#this workflow allows for prediction of fundamental protein features
+#this workflow allows for prediction of fundamental .fasta proteins features
 
 # PfamScan: Program for protein domain analysis
 rule pfamscan:
