@@ -2,7 +2,7 @@ import os
 
 #this workflow allows for prediction of fundamental .fasta proteins features
 
-# PfamScan: Program for protein domain analysis
+#PfamScan: program for protein domain analysis
 rule pfamscan:
     input:
         input_file="{file}.fasta"
@@ -13,7 +13,7 @@ rule pfamscan:
     run:
         touch(output.output_file)
 
-# SEG: Program for detecting low complexity regions in proteins
+#SEG: program for detecting low complexity regions in proteins
 rule seg:
     input:
         input_file="{file}.fasta"
@@ -24,7 +24,7 @@ rule seg:
     run:
         touch(output.output_file)
 
-# pepcoil: Program for predicting coiled coil regions in proteins
+#pepcoil: program for predicting coiled coil regions in proteins
 rule pepcoil:
     input:
         input_file="{file}.fasta"
@@ -35,7 +35,7 @@ rule pepcoil:
     run:
         touch(output.output_file)
 
-# iupred: Program for predicting intrinsically disordered regions in proteins
+#iupred: program for predicting intrinsically disordered regions in proteins
 rule iupred:
     input:
         input_file="{file}.fasta"
@@ -46,7 +46,7 @@ rule iupred:
     run:
         touch(output.output_file)
 
-# WoLFPSort: Program for subcellular localization prediction of proteins in fungi
+#WoLFPSort: program for subcellular localization prediction of proteins in fungi
 rule wolfpsort:
     input:
         input_file="{file}.fasta"
@@ -57,7 +57,7 @@ rule wolfpsort:
     run:
         touch(output.output_file)
 
-# muscle: Program for multiple sequence alignment
+#muscle: program for multiple sequence alignment
 rule muscle:
     input:
         input_file="{file}.fasta"
@@ -68,7 +68,7 @@ rule muscle:
     run:
         touch(output.output_file)
 
-# TMHMM: Program for transmembrane helix prediction in proteins
+#TMHMM: program for transmembrane helix prediction in proteins
 rule tmhmm:
     input:
         input_file="{file}.fasta"
@@ -79,7 +79,7 @@ rule tmhmm:
     run:
         touch(output.output_file)
 
-# HHblits: Program for remote homology detection using profile-profile alignment
+#HHblits: program for remote homology detection using profile-profile alignment
 rule hhblits:
     input:
         input_file="{file}.msa"
@@ -90,7 +90,7 @@ rule hhblits:
     run:
         touch(output.output_file)
 
-# Rule to create separate folders and run all programs
+#rule to create separate folders and run all programs
 rule process_files:
     input:
         "input_files/{file}.fasta"
