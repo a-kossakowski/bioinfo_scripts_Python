@@ -1,25 +1,26 @@
 from Bio import Entrez
 from bioservices import UniProt
 
-#retrives scientific papers data (title, abstract & auythors) linked to specified gene or genes 
-#from UniProt, using a set of user-defined keywords (terms)
+# This script retrieves scientific papers data (title, abstract, and authors) linked to specified genes
+# from UniProt, using a set of user-defined keywords (terms). It searches for gene names in UniProt and
+# fetches relevant publication details from PubMed.
 
-#email  for authentification
+# Email for authentication with Entrez.
 Entrez.email = 'dummy@mail.com'
 
-#list of gene names, UniProt
-gene_names = ['Example_Gene']  #replace with gene names
+# List of gene names to search in UniProt. Replace with actual gene names.
+gene_names = ['Example_Gene']
 
-#initialize UniProt
+# Initialize UniProt service.
 u = UniProt()
 
 gene_ids = []
 
+# Iterate through gene names and search for corresponding UniProt IDs.
 for gene_name in gene_names:
-    #search for gene in UniProt
     result = u.search(gene_name, frmt="tab", columns="id")
     gene_id_list = result.strip().split('\n')
-    
+
     if len(gene_id_list) > 1:
         print(f"Multiple entries found for gene name: {gene_name}")
     elif len(gene_id_list) == 0:
@@ -30,6 +31,7 @@ for gene_name in gene_names:
 
 publication_details = []
 
+# Iterate through gene IDs and search for corresponding publications in PubMed.
 for gene_name, gene_id in gene_ids:
     term = f'{gene_id} AND (cilia OR ciliopathy OR flagella OR motility)'
     handle = Entrez.esearch(db='pubmed', term=term, retmax=1)
@@ -39,7 +41,7 @@ for gene_name, gene_id in gene_ids:
         handle = Entrez.efetch(db='pubmed', id=publication_id, retmode='xml')
         record = Entrez.read(handle)
 
-        #extract details from record
+        # Extract details from the PubMed record.
         title = record['PubmedArticle'][0]['MedlineCitation']['Article']['ArticleTitle']
         abstract = record['PubmedArticle'][0]['MedlineCitation']['Article']['Abstract']['AbstractText']
         authors = record['PubmedArticle'][0]['MedlineCitation']['Article']['AuthorList']
@@ -47,7 +49,7 @@ for gene_name, gene_id in gene_ids:
         publication_details.append((gene_name, title, abstract, authors))
         handle.close()
 
-#display results
+# Display results.
 for gene_name, title, abstract, authors in publication_details:
     print(f'Gene Name: {gene_name}')
     print(f'Title: {title}')
