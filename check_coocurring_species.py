@@ -1,10 +1,10 @@
 import sys
 
-#based on FASTA sequences IDs identifies species, if presents, and prints coocuring
-#organisms between two sets of FASTA sequences
+# This script identifies and prints co-occurring organisms between two sets of FASTA sequences.
+# It takes two FASTA files as input and extracts species names from the sequence IDs.
+# The common species names between the two files are then printed.
 
-
-#function to iterate over each file, looks for FASTA incice '>' and extracts species name
+# Function to iterate over each file, looks for FASTA index '>' and extracts species name.
 def extract_organism_names(file_path):
     organism_names = set()
     with open(file_path, 'r') as file:
@@ -17,18 +17,18 @@ def extract_organism_names(file_path):
                     organism_names.add(organism_name)
     return organism_names
 
-#provide file paths
+# Provide file paths as command-line arguments.
 file_path_1 = sys.argv[1]
 file_path_2 = sys.argv[2]
 
-#extract organism names from each file
+# Extract organism names from each file.
 organism_names_1 = extract_organism_names(file_path_1)
 organism_names_2 = extract_organism_names(file_path_2)
 
-#find common organisms
+# Find common organisms between the two files.
 common_organisms = organism_names_1.intersection(organism_names_2)
 
-#print common organisms
+# Print common organisms.
 print("Common Organisms:")
 for organism in common_organisms:
     print(organism)
