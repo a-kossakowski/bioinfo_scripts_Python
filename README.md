@@ -1,6 +1,6 @@
 # Code Samples by A. Kossakowski
 
-This repository contains a collection of code samples demonstrating various bioinformatics tasks and workflows. Below is an overview of each script and its functionality.
+This repository contains a collection of code samples demonstrating various bioinformatics tasks. Below is an overview of each script and its functionality.
 
 ## Scripts
 
