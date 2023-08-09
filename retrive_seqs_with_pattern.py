@@ -1,8 +1,10 @@
 import sys
 
-#retrives FASTA sequences from given directory {file_path} based on given {pattern}
+# This script retrieves FASTA sequences from a given directory based on a given pattern.
+# It searches a .fasta file for sequences that contain a specified pattern in the header
+# and prints the matching sequences in FASTA format.
 
-#this function will search a .fasta file for sequences that contain a given pattern
+# Function to search a .fasta file for sequences that contain a given pattern.
 def retrieve_sequences_with_pattern(file_path, pattern):
     sequences = []
     with open(file_path, 'r') as file:
@@ -11,28 +13,28 @@ def retrieve_sequences_with_pattern(file_path, pattern):
         for line in file:
             line = line.strip()
             if line.startswith('>'):
+                # If a sequence and header are found and the pattern is in the header, add to sequences.
                 if sequence and header and pattern in header:
                     sequences.append((header, sequence))
                 header = line
                 sequence = ''
             else:
+                # Concatenate lines to form the sequence.
                 sequence += line
-        #check last sequence after the loop ends
+        # Check the last sequence after the loop ends.
         if sequence and header and pattern in header:
             sequences.append((header, sequence))
 
     return sequences
 
-#file path
+# File path and user input pattern are provided as command-line arguments.
 file_path = sys.argv[1]
-
-#user input pattern
 pattern = sys.argv[2]
 
-#retrieve sequences with the pattern
+# Retrieve sequences with the specified pattern.
 sequences = retrieve_sequences_with_pattern(file_path, pattern)
 
-#print sequences in FASTA format
+# Print sequences in FASTA format.
 for header, sequence in sequences:
     print(header)
     print(sequence)
