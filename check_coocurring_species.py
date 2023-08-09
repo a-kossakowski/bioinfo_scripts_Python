@@ -26,7 +26,7 @@ organism_names_1 = extract_organism_names(file_path_1)
 organism_names_2 = extract_organism_names(file_path_2)
 
 # Find common organisms between the two files.
-common_organisms = organism_names_1.intersection(organism_names_2)
+common_organisms = organism_names_1 & organism_names_2
 
 # Print common organisms.
 print("Common Organisms:")
