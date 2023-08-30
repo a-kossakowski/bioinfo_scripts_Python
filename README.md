@@ -1,6 +1,6 @@
-# Code Samples by A. Kossakowski
+# Code Examples for Bioinformatics by A. Kossakowski
 
-This repository contains a collection of code samples demonstrating various bioinformatics tasks. Below is an overview of each script and its functionality.
+This repository contains a collection of code examplas demonstrating various bioinformatics tasks. Below is an overview of each script and its functionality.
 
 ## Scripts
 
@@ -11,10 +11,10 @@ Identifies and prints co-occurring organisms between two sets of FASTA sequences
 Retrieves scientific papers data (title, abstract, and authors) linked to specified genes from UniProt, using a set of user-defined keywords (terms).
 
 ### `protein_taxa_assignment.py`
-Assigns the order of taxonomy for each protein by searching for it inside a proteome file and assigning a proteome ID, which is transferred to a taxa name.
+Assigns the order of taxonomy for each protein by searching inside a proteome file and assigning a proteome ID, which is transferred to a taxa name.
 
 ### `retrive_seqs_with_pattern.py`
-Retrieves FASTA sequences from a given directory based on a given pattern. It searches a .fasta file for sequences that contain a specified pattern.
+Retrieves FASTA sequences from a given directory based on a given pattern.
 
 ## Usage
 
