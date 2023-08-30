@@ -1,4 +1,4 @@
-# Code Examples for Bioinformatics by A. Kossakowski
+# Python Code Examples for Bioinformatics
 
 This repository contains a collection of code examplas demonstrating various bioinformatics tasks. Below is an overview of each script and its functionality.
 
