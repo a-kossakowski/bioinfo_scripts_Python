@@ -16,6 +16,9 @@ Assigns the order of taxonomy for each protein by searching inside a proteome fi
 ### `retrive_seqs_with_pattern.py`
 Retrieves FASTA sequences from a given directory based on a given pattern.
 
+### `OOP_BioPyth_prot_analysis.py`
+Provides basic informations about the given protein sequence, utilizes BioPython and Object Oriented Programming (OOP)
+
 ## Usage
 
 Please refer to the individual scripts for specific usage instructions. Most scripts can be run from the command line with the required input files and parameters.
