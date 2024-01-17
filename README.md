@@ -1,24 +1,36 @@
-# Python Code Examples for Bioinformatics
+# Bioinformatics Protein Analysis Script
 
-This repository contains a collection of code examplas demonstrating various bioinformatics tasks. Below is an overview of each script and its functionality.
+This repository contains the `OOP_BioPyth_prot_analysis.py` script, which is designed for various protein analysis tasks using BioPython. It's an object-oriented approach to calculate molecular weight, isoelectric point, amino acid composition, and more.
 
-## Scripts
+## Features
 
-### `check_coocurring_species.py`
-Identifies and prints co-occurring organisms between two sets of FASTA sequences. Based on FASTA sequence IDs, it extracts species names and finds common organisms between two files.
+- Molecular weight calculation
+- Isoelectric point determination
+- Amino acid composition analysis
+- Domain search within the protein sequence
+- Count of specific amino acids
 
-### `genes_to_papers_UniProt.py`
-Retrieves scientific papers data (title, abstract, and authors) linked to specified genes from UniProt, using a set of user-defined keywords (terms).
+## Setup
 
-### `protein_taxa_assignment.py`
-Assigns the order of taxonomy for each protein by searching inside a proteome file and assigning a proteome ID, which is transferred to a taxa name.
+To run this script, you need to have Python installed along with the BioPython library. You can install BioPython using pip:
 
-### `retrive_seqs_with_pattern.py`
-Retrieves FASTA sequences from a given directory based on a given pattern.
-
-### `OOP_BioPyth_prot_analysis.py`
-Provides basic informations about the given protein sequence, utilizes BioPython and Object Oriented Programming (OOP)
+bash:
+pip install biopython
 
 ## Usage
+The OOP_BioPyth_prot_analysis.py script can be executed as a standalone Python script. Simply clone this repository and run the script:
 
-Please refer to the individual scripts for specific usage instructions. Most scripts can be run from the command line with the required input files and parameters.
+python OOP_BioPyth_prot_analysis.py
+
+## Testing
+The test_OOP_BioPyth_prot_analysis.py script is included to test the functionality of the Protein class within OOP_BioPyth_prot_analysis.py. The tests are written using Python's unittest framework.
+
+To run the tests, execute the following command from the root directory of this project:
+
+python -m unittest test_OOP_BioPyth_prot_analysis.py
+
+
+This will run a series of tests to ensure the accuracy and robustness of the Protein class's methods.
+
+
+
